@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: product-service
+
+server:
+  port: 8090
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://postgres:5432/microservices_product
+    username: postgres
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+order:
+  service:
+    url: http://order-service:8085
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://host.docker.internal:8761/eureka
